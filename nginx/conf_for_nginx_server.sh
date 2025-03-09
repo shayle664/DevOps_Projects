@@ -15,12 +15,12 @@ function main(){
 	case "$2" in
 		install_nginx) install_nginx ;;
 		configure_default_file) configure_default_file ;;
-		confiure_user) confiure_user ;;
+		configure_user) configure_user ;;
 		check_userdir) check_userdir ;;
 		full-setup)
 			install_nginx
 			configure_default_file
-			confiure_user
+			configure_user
 			check_userdir
 			;;
 		*)
@@ -31,9 +31,9 @@ function main(){
 esac
 }
 
-main
+main "$@"
 
-function install_nginx (){
+function install_nginx(){
 	sudo apt update
 	sudo apt install curl -y
 	sudo apt install apache2-utils nginx-extras -y
@@ -80,7 +80,7 @@ EOF
 }
 
 
-function confiure_user(){
+function configure_user(){
 	echo -e "$password\n$password" | sudo htpasswd -c /etc/nginx/.htpasswd user1
 }
 
@@ -88,3 +88,5 @@ function confiure_user(){
 function check_userdir(){
 	curl -u user1:$password -I http://$virtual_host/~shay
 }
+
+
