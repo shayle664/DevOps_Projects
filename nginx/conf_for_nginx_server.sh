@@ -1,6 +1,6 @@
 ###### Start Safe Header ######
-#Develp by: shay.l
-#Purpose: confgiure nginx server quickly and efficiently
+#Developed by: shay.l
+#Purpose: Configure nginx server quickly and efficiently
 #date: 03/03/2025
 #version: 0.0.1
 set -o errexit
@@ -37,11 +37,7 @@ function install_nginx(){
 	sudo apt update
 	sudo apt install curl -y
 	sudo apt install apache2-utils nginx-extras -y
-	if [[ ! -d /etc/nginx/ ]]; then
-		sudo apt-get install nginx -y
-	else
-		echo nginx allredy install
-	fi
+	sudo apt-get install nginx -y
 }
 
 
