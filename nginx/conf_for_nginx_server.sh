@@ -26,7 +26,7 @@ function main(){
 		*)
 			echo "Usage: $0, and choose a server name and an action you want to perform {install_nginx|configure_default_file|confiure_user|check_userdir|full-setup}"
 			echo "example: /conf_for_nginx_server.sh theBestWeb.com full-setup"
-			exit1
+			exit 1
 			;;
 esac
 }
