@@ -21,7 +21,7 @@ spouse_age = 25
 spouse_age_string = str(spouse_age)
 credit_card_details = "123 salty fish"
 print(spouse_age_string + " " + credit_card_details)
-
+```
 ---
 
 ## Task 2: Personal Information
@@ -42,7 +42,7 @@ nickname = "bboy bugs"
 my_pet_name = "Rexy"
 my_age = 27
 print(f"My name is {my_name}, my nickname is {nickname} and I am {my_age} years old")
-
+```
 ---
 
 
@@ -65,4 +65,4 @@ my_con = wifi + laptops_hostname
 print(my_con)
 my_con = my_con + " 5324"
 print(my_con)
-
+```
