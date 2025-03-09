@@ -11,28 +11,6 @@ virtual_host=${1:-shayexmple.com}
 password="${USER_PASSWORD:-admin}"
 
 
-function main(){
-	case "$2" in
-		install_nginx) install_nginx ;;
-		configure_default_file) configure_default_file ;;
-		configure_user) configure_user ;;
-		check_userdir) check_userdir ;;
-		full-setup)
-			install_nginx
-			configure_default_file
-			configure_user
-			check_userdir
-			;;
-		*)
-			echo "Usage: $0, and choose a server name and an action you want to perform {install_nginx|configure_default_file|confiure_user|check_userdir|full-setup}"
-			echo "example: /conf_for_nginx_server.sh theBestWeb.com full-setup"
-			exit 1
-			;;
-esac
-}
-
-main "$@"
-
 function install_nginx(){
 	sudo apt update
 	sudo apt install curl -y
@@ -85,4 +63,25 @@ function check_userdir(){
 	curl -u user1:$password -I http://$virtual_host/~shay
 }
 
+function main(){
+         case "$2" in
+		install_nginx) install_nginx ;;
+                configure_default_file) configure_default_file ;;
+                configure_user) configure_user ;;
+                check_userdir) check_userdir ;;
+                full-setup)
+                        install_nginx
+                        configure_default_file
+                        configure_user
+                        check_userdir
+                        ;;
+                *)
+                        echo "Usage: $0, and choose a server name and an action you want to perform {install_nginx|configure_defau    lt_file|confiure_user|check_userdir|full-setup}"
+                         echo "example: /conf_for_nginx_server.sh theBestWeb.com full-setup"
+                         exit 1
+                         ;;
+esac
+}
+
+main "$@"
 
